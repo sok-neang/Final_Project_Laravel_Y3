@@ -1,14 +1,16 @@
-          <div class="card mb-4">
-            <div class="card-header">Tags</div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    @foreach ($tags as $tag)
-                      <li><a href="{{route('home', ['tag_id'=>$tag->id])}}">{{$tag->name}}</a></li>
+          {{-- <div class="card mb-4">
+            <div class="card-header">Tags</div> --}}
+            {{-- <div class="card-body"> --}}
+              <div class="row mb-5">
+                <div class="col-sm-8 m-auto">
+                  <ul class="list-unstyled mb-0 d-flex justify-content-center flex-wrap gap-4">
+                    @foreach ($sidebar_tags as $sidebar_tag)
+                      <li>
+                        <a class="text-decoration-none text-success" href="{{route('home', ['tag_id'=>$sidebar_tag->id])}}">{{$sidebar_tag->name}}</a>
+                      </li>
                     @endforeach
                   </ul>
                 </div>
               </div>
-            </div>
-          </div>
+            {{-- </div> --}}
+          {{-- </div> --}}

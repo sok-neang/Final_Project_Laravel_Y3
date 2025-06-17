@@ -54,7 +54,7 @@
               <tfoot>
                 <tr>
                   <th>No</th>
-                  <th>Tag</th>
+                  <th>Category</th>
                   <th>Action</th>
                 </tr>
               </tfoot>
