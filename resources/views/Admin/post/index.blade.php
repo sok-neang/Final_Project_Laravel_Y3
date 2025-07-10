@@ -3,12 +3,12 @@
 @section('title', 'Post Create')
 
 @section('content')
-          <div class="row">
-        <div class="d-flex justify-content-between mb-2">
-          <h3>Post List</h3>
-          <a class="btn btn-success" href="{{ route('Admin.post.create') }}" role="button"
-            >Create</a
-          >
+      <div class="row mx-5">
+        <div class="d-flex justify-content-between mb-2 ">
+            <h3>Post List</h3>
+            <a class="btn btn-success" href="{{ route('Admin.post.create') }}" role="button"
+              >Create</a
+            >
         </div>
                 <!-- Blog entries-->
         <div class="col-lg-12">
@@ -46,7 +46,7 @@
                     <td>{{ $post->user?->email }}</td>
                     <td>
                       <a
-                        class="btn btn-primary btn-sm"
+                        class="btn btn-outline-success btn-sm"
                         href="{{ route('Admin.post.edit', ['id' => $post->id]) }}"
                         role="button"
                         >Edit</a

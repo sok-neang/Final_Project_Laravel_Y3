@@ -1,7 +1,8 @@
+
     <section class="py-5">
       <div class="container text-center">
-        <h2 class="text-success fw-semibold">Our Services</h2>
-        <h3 class="fw-bold">Fostering a playful & engaging <br> learning environment</h3>
+        <h2 class="text-success fw-bolder">Our Services</h2>
+        <span class="text-description">Fostering a playful & engaging learning environment</span>
 
         <section class="rotating">
           <div class="box">
@@ -16,65 +17,97 @@
           </div>
         </section>
 
-        <!-- Scrollable Service Cards -->
-        <div class="d-flex scroll-container overflow-auto gap-4 px-2">
-          <!-- Card 1 -->
-          <div class="card flex-shrink-0 p-4 rounded-4 shadow-sm" style="min-width: 300px; box-shadow:10px 1px 2px 20px green">
-            <div class="d-flex align-items-start">
-              <div class="bg-success text-white p-2 rounded-3 me-3">
-                <i class="bi bi-display fs-4"></i>
+        <!-- Popular Courses Style Scrollable Cards -->
+        <div class="scroll-courses-container overflow-auto px-2 mt-5 py-3">
+          <div class="d-flex flex-row gap-4">
+            @php
+              $icons = [
+                "UX/UI Design" => "bi-palette",
+                "HTML" => "bi-filetype-html",
+                "CSS" => "bi-filetype-css",
+                "JavaScript" => "bi-filetype-js",
+                "PHP" => "bi-filetype-php",
+                "Laravel" => "bi-layers",
+                "React" => "bi-lightning-charge",
+                "Node.js" => "bi-node-plus",
+                "Python" => "bi-filetype-py",
+                "Django" => "bi-diagram-3",
+                "Aungular" => "bi-cpu",
+                "Vue.js" => "bi-eye",
+                "SQL" => "bi-database",
+                "MongoDB" => "bi-database-fill",
+                "Git" => "bi-git",
+                "Docker" => "bi-box-seam",
+                "AWS" => "bi-cloud",
+                "PostgreSQL" => "bi-database-check",
+              ];
+            @endphp
+            @foreach ($tags as $tag)
+              <div class="course-card card border-0 shadow-sm"
+                data-tag="{{ $tag->name }}"
+                style="min-width: 260px; max-width: 260px; border-radius: 1.5rem; background: #fff;">
+                <div class="p-4 d-flex flex-column align-items-start h-100">
+                  <div class="mb-3">
+                    <i class="bi {{ $icons[$tag->name] ?? 'bi-display' }} fs-2 text-white px-3 py-2 rounded-4" style="background-color: rgba(100, 232, 153, 0.549);"></i>
+                  </div>
+                  <h5 class="fw-bold mb-2">{{ $tag->name }}</h5>
+                  <p class="text-muted d-inline-flex justify-content-start small mb-3" style="min-height: 40px;">
+                    {{ $tag->description ?? 'Explore this course to boost your skills.' }}
+                  </p>
+                  <a href="#" class="btn btn-outline-success btn-sm mt-auto rounded-pill px-3">
+                    Learn More <i class="bi bi-arrow-right-short"></i>
+                  </a>
+                </div>
               </div>
-              <div>
-                <h5 class="fw-bold">HTML & CSS</h5>
-                <p class="mb-3 text-start">Learn the building blocks of the web: structure and styling.</p>
-                <a href="#" class="text-success text-decoration-none">Learn More <i class="bi bi-arrow-right-short"></i></a>
-              </div>
-            </div>
+            @endforeach
           </div>
-
-          <!-- Card 2 -->
-          <div class="card flex-shrink-0 p-4 rounded-4 shadow-sm" style="min-width: 300px;">
-            <div class="d-flex align-items-start">
-              <div class="bg-primary text-white p-2 rounded-3 me-3">
-                <i class="bi bi-laptop fs-4"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold">JavaScript Basics</h5>
-                <p class="mb-3 text-start">Master interactivity and logic for web development.</p>
-                <a href="#" class="text-success text-decoration-none">Learn More <i class="bi bi-arrow-right-short"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="card flex-shrink-0 p-4 rounded-4 shadow-sm" style="min-width: 300px;">
-            <div class="d-flex align-items-start">
-              <div class="bg-danger text-white p-2 rounded-3 me-3">
-                <i class="bi bi-terminal fs-4"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold">Backend with Laravel</h5>
-                <p class="mb-3 text-start">Build dynamic web apps using PHP and Laravel.</p>
-                <a href="#" class="text-success text-decoration-none">Learn More <i class="bi bi-arrow-right-short"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="card flex-shrink-0 p-4 rounded-4 shadow-sm" style="min-width: 300px;">
-            <div class="d-flex align-items-start">
-              <div class="bg-warning text-white p-2 rounded-3 me-3">
-                <i class="bi bi-code-slash fs-4"></i>
-              </div>
-              <div>
-                <h5 class="fw-bold">ReactJS Frontend</h5>
-                <p class="mb-3 text-start">Build modern UIs with reusable components using React.</p>
-                <a href="#" class="text-success text-decoration-none">Learn More <i class="bi bi-arrow-right-short"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Add more cards as needed -->
         </div>
-      </div>
-    </section>
+        <style>
+          .scroll-courses-container {
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color);
+          }
+          .scroll-courses-container::-webkit-scrollbar {
+            height: 10px;
+          }
+          .scroll-courses-container::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+          }
+          .course-card {
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+          }
+          .course-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(25,135,84,0.12);
+          }
+        </style>
+        <script>
+        const tagColors = {
+          "UX/UI Design": "#f0f8ff",
+          "HTML": "#ffe4b5",
+          "CSS": "#d1fae5",
+          "JavaScript": "#e0f2fe",
+          "PHP": "#f3e8ff",
+          "Laravel": "#fef2f2",
+          "React": "#f0f9ff",
+          "Node.js": "#fef3c7",
+          "Python": "#f5f3ff",
+          "Django": "#fef9c3",
+          "Aungular": "#f0fdf4",
+          "Vue.js": "#fef2f2",
+          "SQL": "#fef9c7",
+          "MongoDB": "#f3f4f6",
+          "Git": "#fef3c7",
+          "Docker": "#fef2f2",
+          "AWS": "#f0f9ff",
+          "PostgreSQL": "#f3e8ff",
+        };
+        document.querySelectorAll('.course-card').forEach(card => {
+          const tag = card.getAttribute('data-tag');
+          if (tagColors[tag]) {
+            card.style.backgroundColor = tagColors[tag];
+          }
+        });
+        </script>

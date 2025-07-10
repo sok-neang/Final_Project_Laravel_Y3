@@ -6,7 +6,7 @@
                   <ul class="list-unstyled mb-0 d-flex justify-content-center flex-wrap gap-4">
                     @foreach ($sidebar_tags as $sidebar_tag)
                       <li>
-                        <a class="text-decoration-none text-success" href="{{route('home', ['tag_id'=>$sidebar_tag->id])}}">{{$sidebar_tag->name}}</a>
+                        <a style="font-weight: 600" class="text-decoration-none text-success" href="{{route('home', ['tag_id'=>$sidebar_tag->id])}}">{{$sidebar_tag->name}}</a>
                       </li>
                     @endforeach
                   </ul>

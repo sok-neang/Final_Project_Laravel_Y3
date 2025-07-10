@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Tag;
 use Illuminate\Routing\Controller;
 
 class HomeController extends Controller
@@ -35,7 +36,7 @@ class HomeController extends Controller
                 $sub_query->where('id', $tag_id);
             });
         })
-        ->paginate(8);
+        ->paginate(9);
 
         return view('index', ['posts' => $post]);
     }

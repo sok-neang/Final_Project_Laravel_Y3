@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
 class AuthController extends Controller
 {
     public function login(){
@@ -44,4 +47,38 @@ class AuthController extends Controller
     
         return redirect('/');
     }
+
+    public function showRegisterForm()
+        {
+            return view('register');
+        }
+
+    public function register(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|confirmed',
+            'profile' => 'nullable|image|max:2048',
+            
+        ]);
+
+        $profilePath = null;
+
+        if ($request->hasFile('profile')) {
+            $file = $request->file('profile');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $profilePath = $file->storeAs('uploads/profiles', $fileName, 'public');
+        }
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'profile' => $profilePath, 
+        ]);
+
+        return redirect()->route('login')->with('success', 'Account created. Please log in.');
+    }
+
 }

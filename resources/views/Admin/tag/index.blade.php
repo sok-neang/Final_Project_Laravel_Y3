@@ -3,7 +3,7 @@
 @section('title', 'Tag_List')
 
 @section('content')
-          <div class="row">
+          <div class="row mx-5">
         <div class="d-flex justify-content-between mb-2">
           <h3>tag List</h3>
           <a class="btn btn-success" href="{{ route('Admin.tag.create') }}" role="button"
@@ -32,7 +32,7 @@
                   <td>{{ $tag->name }}</td>
                   <td class="d-flex justify-content-between">
                     <a
-                      class="btn btn-primary btn-sm mx-3"
+                      class="btn btn-outline-success btn-sm mx-3"
                       href="{{ route('Admin.tag.edit', ['id' => $tag->id]) }}"
                       role="button"
                       >Edit</a
@@ -41,7 +41,7 @@
                       @method ('DELETE')
                       @csrf
                       <button
-                        class="btn btn-danger btn-sm"
+                        class="btn btn-outline-warning btn-sm"
                         role="button"
                         type="submit"
                         >Delete

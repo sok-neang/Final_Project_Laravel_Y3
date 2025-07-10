@@ -33,7 +33,7 @@
             @if(Auth::check())
               <li class="nav-item dropdown">
 
-                  <img src="{{ asset('storage/uploads/logo_image/profile.jpg') }}" alt="Admin Profile" width="80" class="nav-link dropdown-toggle text-dark px-3"
+                  <img src="{{ asset('storage/' . auth()->user()->profile) }}" alt="Admin Profile" width="80" class="nav-link dropdown-toggle text-dark px-3"
                   href="#"
                   id="navbarDropdown"
                   role="button"
@@ -69,8 +69,11 @@
                 </form>
               </li>
             @else
-              <li class="nav-item">
+              <li class="nav-item px-2">
                 <a class="nav-link text-light px-3 btn-login" href="{{ route('login') }}">Login</a>
+              </li>
+              <li class="nav-item px-2">
+                <a class="nav-link text-light px-3 btn-login" href="{{ route('register') }}">Register</a>
               </li>
             @endif
 

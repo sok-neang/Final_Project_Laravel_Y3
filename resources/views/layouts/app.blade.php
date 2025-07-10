@@ -13,13 +13,19 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
+  <style>
+      
       *{
         padding: 0%;
         margin: 0%;
         box-sizing: border-box
+      }
+      body{
+        font-family: 'Open Sans', sans-serif;
       }
       :root{
         --primary-color:#20B486;
@@ -31,6 +37,15 @@
       }
       .text-description{
         color: var(--description-color);
+      }
+      .bg-primary-background{
+        background-color: #ECFDF5;
+      }
+      .bg-background{
+        background-color: var(--primary-color);
+      }
+      .bg-card{
+        background-color: #ECFDF5;
       }
       h1{
         font-size: 50px;
@@ -54,21 +69,21 @@
       }
 
       /* Hero banner */
-          .highlight {
-      color: #1ab07a;
+    .highlight {
+      color: var(--primary-color);
     }
     .btn-green {
-      background-color: #1ab07a;
+      background-color: var(--primary-color);
       color: white;
     }
     .btn-outline-green {
-      border: 1px solid #1ab07a;
-      color: #1ab07a;
+      border: 1px solid var(--primary-color);
+      color: var(--primary-color);
     }
     .feature-icon {
       font-size: 1.5rem;
       margin-right: 10px;
-      color: #1ab07a;
+      color: var(--primary-color);
     }
     .stats-box {
       border-radius: 15px;
@@ -81,10 +96,16 @@
       max-height: 30px;
       margin: 0 20px;
     }
+
+    .btn-learn-now:hover,
+    .btn-getstart:hover{
+      background-color: rgba(32, 180, 134,0.8);
+      color: #fff;
+    }
     .person-img {
       border: 2px solid var(--primary-color);
       background-color: var(--primary-color);
-      border-radius: 50%;
+      border-radius: 50% !important;
       max-width: 100%;
       height: auto;
     }
@@ -140,19 +161,30 @@
       object-fit: cover;
 
     }
-    </style>
+    .card-box {
+      transition: background-color 0.3s ease-in-out !important;
+    }
 
-  </head>
+    footer{
+      margin-bottom: -50px
+    }
+    /* search */
+    #button-search:hover{
+      background-color: rgba(32, 180, 134 , 0.8)
+    }
+ </style>
+
+  
+</head>
   <body>
     <!-- Responsive navbar-->
       @include('components.navbar')
     <!-- Page content-->
-    <div class="container mt-5">
+    <div class=" mt-5">
       @yield('content')
     </div>
     <!-- Footer-->
-     @include('components.footer')
-
+    @include('components.footer')
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

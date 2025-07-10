@@ -24,6 +24,17 @@
                   value="{{ $post->title }}"
                 />
               </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                  class="form-control"
+                  id="description"
+                  name="description"
+                  rows="5"
+                >{{ $post->description }}</textarea>
+              </div>
+              
               <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
                 <textarea
@@ -33,6 +44,7 @@
                   rows="5"
                 >{{ $post->content }}</textarea>
               </div>
+
               <div class="mb-3">
                 <label for="thumbnail" class="form-label"
                   >Choose Thumbnail</label

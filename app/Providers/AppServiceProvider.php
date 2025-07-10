@@ -30,5 +30,11 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrapFive();
         View::share('nav_categories', Category::all());
         view::share('sidebar_tags', Tag::all() );
+
+        View::composer('*', function ($view) {
+        $view->with('tags', Tag::all());
+        });
     }
+
+    
 }

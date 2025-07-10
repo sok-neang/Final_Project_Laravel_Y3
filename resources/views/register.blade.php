@@ -46,7 +46,7 @@
             max-width: 550px;
             width: 100%;
         }
-        
+
         .form-title {
             color: #fff;
             font-weight: 500;
@@ -57,7 +57,7 @@
         
         .input-group-custom {
             position: relative;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
         
         .form-control-custom {
@@ -131,30 +131,60 @@
             font-weight: 500;
             text-decoration: none;
         }
+        .upload-btn{
+            border: 1px 
+            border-style: dashed;
+        }
+        .upload-btn{
+            border: 1px solid var(--primary-color);
+            border-style: dashed;
+
+        }
     </style>
-  </head>
-  <body>
 
 
     <div class="container login">
         <div class="form-container m-auto">
-            <h2 class="form-title">Login</h2>
+            <h2 class="form-title">Register</h2>
             
-            <form method="POST" action="{{ route('authenticate') }}">
+            <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <div class="input-group-custom mb-4">
+                    <button onclick="document.getElementById('profile').click()" class="d-flex form-control justify-content-center align-items-center form-control-custom rounded-1 py-4 upload-btn">
+                        <div>
+                            <img id="preview" src="#" alt="Preview" style="display: none; max-width: 50px; border-radius: 50%; margin-left: 10px;">
+                            <i class="fa-regular fa-image px-2 text-success"></i>
+                            Upload Image
+                        </div>
+                    </button>
+                    <input type="file" class="form-control form-control-custom d-none " onchange="previewImage(event)" name="profile" id="profile" accept="image/*">
+                </div>
+                
+                <div class="input-group-custom mt-4">
+                    <i class="fa-solid fa-user input-icon"></i>
+                    <input type="text" class="form-control form-control-custom" name="name" id="name" value="{{ old('name') }}" placeholder=" "  required>
+                    <label class="input-label" for="name">Name</label><br>
+                </div>
+
                 <div class="input-group-custom">
                     <i class="fas fa-envelope input-icon"></i>
-                    <input type="email" class="form-control form-control-custom @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder=" ">
-                    <label for="email" class="input-label">Admin email</label>
+                    <input type="email" class="form-control form-control-custom" name="email" id="email" value="{{ old('email') }}" placeholder=" " required>
+                    <label class="input-label" for="email">Email</label><br>
                 </div>
-                
+
                 <div class="input-group-custom">
                     <i class="fas fa-lock input-icon"></i>
-                    <input type="password" class="form-control form-control-custom @error('password') is-invalid @enderror" id="password" name="password" placeholder=" ">
-                    <label for="password" class="input-label">Admin password</label>
+                    <input type="password" class="form-control form-control-custom" name="password" id="password" placeholder=" "  required>
+                    <label class="input-label" for="password">Password</label><br>
+                </div>
+
+                <div class="input-group-custom">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input type="password" class="form-control form-control-custom" name="password_confirmation" id="password_confirmation" placeholder=" " required>
+                    <label class="input-label" for="password_confirmation">Confirm Password</label><br>
                 </div>
                 
-                <button type="submit" class="btn w-100 bg-success text-light">Login</button>
+                <button type="submit" class="btn w-100 bg-success text-light">Register</button>
             </form>
         </div>
     </div>
@@ -164,8 +194,22 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script>
+        function previewImage(event) {
+            const file = event.target.files[0];
+            if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('preview');
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                document.querySelector('.fa-regular').style.display = 'none'; // Hide the icon when an image is selected
+            };
+            reader.readAsDataURL(file);
+            }
+        }
+    </script>
   </body>
 </html>
 
-
- 

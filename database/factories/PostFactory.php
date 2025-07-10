@@ -25,6 +25,7 @@ class PostFactory extends Factory
             'user_id' => 1, // Assuming the user with ID 1 exists
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
+            'description' => $this->faker->text(500), // Optional description
             'thumbnail' => 'uploads/'.$this->faker->randomElement($thumbnails),
             'category_id' => $this->faker->randomElement($categories),
         ];

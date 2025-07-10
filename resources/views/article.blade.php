@@ -6,7 +6,7 @@
 @section('content')
       <div class="container mt-5">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-12">
           <!-- Post content-->
           <article>
             <!-- Post header-->
@@ -28,26 +28,30 @@
               @endforeach
             </header>
             <!-- Preview image figure-->
-            <figure class="mb-4">
+            <figure class="mb-5 d-flex">
               <img
-                class="img-fluid rounded"
+                width="500"
+                class="img-fluid rounded m-auto"
                 src="{{$post->image}}"
                 alt="..."
               />
             </figure>
+            <section>
+              {{$post->description}}
+            </section>
             <!-- Post content-->
             <section class="mb-5">
-              {{$post->content}}
+              {!! $post->content !!}
             </section>
           </article>
         </div>
         <!-- Side widgets-->
-        <div class="col-lg-4">
+        {{-- <div class="col-lg-4">
           <!-- Search widget-->
             @include('components.serchForm')
           <!-- Tags widget-->
             @include('components.tag')
-        </div>
+        </div> --}}
       </div>
     </div>
 @endsection

@@ -24,8 +24,13 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[HomeController::class, 'index']) ->name('home');
 
+Route::get('/search', [HomeController::class, 'search']);
+
+
 Route::get('/article/{id}', [HomeController::class, 'article'])->name('article'); // Route for viewing a specific article
 Route::get('/login', [AuthController::class, 'login'])->name('login'); // Route for the login page
+Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register.form');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate'); // Route for handling authentication
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout'); // Route for handling logout
 
