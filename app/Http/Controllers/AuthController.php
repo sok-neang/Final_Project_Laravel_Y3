@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
@@ -35,6 +36,11 @@ class AuthController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    public function allcourses()
+    {
+        return view('allcourses');
     }
 
     public function logout(Request $request): RedirectResponse

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Tag;
@@ -44,5 +45,17 @@ class HomeController extends Controller
     public function article(Request $request, $id){
         $post = Post::findOrFail($id);
         return view('article', compact('post'));
+    }
+
+    public function allCourses(Request $request)
+    {
+        $posts = Post::latest()->paginate(9); 
+
+        return view('allcourses', ['posts' => $posts]);
+    }
+    
+    public function about(Request $request)
+    {
+        return view('about');
     }
 }

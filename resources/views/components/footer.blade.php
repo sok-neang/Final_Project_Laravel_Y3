@@ -1,6 +1,6 @@
     
     
-<footer class="bg-primary-background text-dark mt-4">
+<footer class="bg-primary-background text-dark mt-4" data-aos="fade-up" data-aos-duration="700">
   <div class="container py-4">
     <div class="row">
       <div class="col-4">
@@ -28,7 +28,7 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid border-top text-center d-flex justify-content-center align-content-center h-100 py-4">
+  <div class="container-fluid border-top text-center d-flex justify-content-center align-content-center py-4">
     &copy; {{ date('Y') }} Your Company Name. All rights reserved.
   </div>
 </footer>

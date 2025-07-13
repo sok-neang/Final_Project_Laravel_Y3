@@ -1,20 +1,21 @@
     <div class="container py-5">
+      <div class="hero-background"></div>
       <div class="row align-items-center">
         <!-- Text Section -->
         <div class="col-lg-6">
-          <h1 class="fw-bold">
+          <h1 class="fw-bold" data-aos="fade-up"  data-aos-duration="1000">
             Up Your <span class="highlight">Skills</span><br>
             To <span class="highlight">Advance </span>Your<br>
             <span class="highlight">Career </span>Path
           </h1>
-          <p class=" mt-3 mb-4 text-description">
+          <p class=" mt-3 mb-4 text-description" data-aos="fade-up"  data-aos-duration="1200">
             Learn web development step by step with hands-on tutorials, real-world projects, and expert guidance. Build your skills and grow your career as a web developer.          </p>
-          <div class="d-flex gap-3 my-4">
+          <div class="d-flex gap-3 my-4" data-aos="fade-up"  data-aos-duration="1400">
             <a href="#" class="btn btn-getstart btn-green px-4">Get Started</a>
             <a href="#" class="btn btn-getstart btn-outline-green px-4">Get free trial</a>
           </div>
 
-          <div class="d-flex gap-4 my-5 text-description">
+          <div class="d-flex gap-4 my-5 text-description" data-aos="fade-up"  data-aos-duration="1500">
             <div><i class="feature-icon bi bi-code-slash"></i> Full-Stack Tutorials</div>
             <div><i class="feature-icon bi bi-laptop"></i> Real-World Projects</div>
             <div><i class="feature-icon bi bi-award"></i> Career-Ready Skills</div>
@@ -24,7 +25,7 @@
 
         <!-- Image and Stats Section -->
         <div class="col-lg-6 text-center position-relative">
-          <div class="position-relative">
+          <div class="position-relative floating-box" data-aos="fade-up"  data-aos-duration="1000">
             <!-- Placeholder image -->
             <img src="{{ asset('storage/uploads/student.png') }}" alt="Person" class="person-img">
 

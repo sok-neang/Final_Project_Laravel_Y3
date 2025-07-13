@@ -1,8 +1,8 @@
 
-    <section class="py-5">
+    <section class="py-5 mt-5">
       <div class="container text-center">
-        <h2 class="text-success fw-bolder">Our Services</h2>
-        <span class="text-description">Fostering a playful & engaging learning environment</span>
+        <h2 class="text-success fw-bolder" data-aos="fade-up"  data-aos-duration="1000">Our Services</h2>
+        <p class="text-description" data-aos="fade-up"  data-aos-duration="1200">Fostering a playful & engaging learning environment</p>
 
         <section class="rotating">
           <div class="box">
@@ -19,7 +19,7 @@
 
         <!-- Popular Courses Style Scrollable Cards -->
         <div class="scroll-courses-container overflow-auto px-2 mt-5 py-3">
-          <div class="d-flex flex-row gap-4">
+          <div class="d-flex flex-row gap-4" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="900">
             @php
               $icons = [
                 "UX/UI Design" => "bi-palette",
@@ -52,7 +52,7 @@
                   </div>
                   <h5 class="fw-bold mb-2">{{ $tag->name }}</h5>
                   <p class="text-muted d-inline-flex justify-content-start small mb-3" style="min-height: 40px;">
-                    {{ $tag->description ?? 'Explore this course to boost your skills.' }}
+                    {{ Str::limit($tag->content ?? 'Explore this course to boost your skills.', 50) }}
                   </p>
                   <a href="#" class="btn btn-outline-success btn-sm mt-auto rounded-pill px-3">
                     Learn More <i class="bi bi-arrow-right-short"></i>
@@ -63,12 +63,9 @@
           </div>
         </div>
         <style>
-          .scroll-courses-container {
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color);
-          }
           .scroll-courses-container::-webkit-scrollbar {
             height: 10px;
+            display: none;
           }
           .scroll-courses-container::-webkit-scrollbar-thumb {
             background: var(--primary-color);

@@ -1,55 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>All Courses</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Edu+SA+Hand:wght@400..700&display=swap" rel="stylesheet">
+  <style>
+      
+      *{
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box
+      }
+      body{
+        font-family: 'Open Sans', sans-serif;
+      }
+      :root{
+        --primary-color:#20B486;
+        --secondary-color:#FF9B26;
+        --description-color:#646464;
+      }
+      .text-active{
+        color: var(--primary-color);
+      }
+      .text-description{
+        color: var(--description-color);
+      }
+      .bg-primary-background{
+        background-color: #ECFDF5;
+      }
+      .bg-background{
+        background-color: var(--primary-color);
+      }
+      .bg-card{
+        background-color: #ECFDF5;
+      }
+      h1{
+        font-size: 50px;
+      }
+      .post-content{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2; /* Number of lines to show */
+                line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .btn-login, .btn-logout{
+          border: 2px solid #fff;
+          border-radius: 10px;
+          background-color:var(--primary-color);
+      }
+      .btn-logout:hover{
+        border: 2px solid #fff;
+        background-color: var(--primary-color);
+      }
+
+    /* search */
+    #button-search:hover{
+      background-color: rgba(32, 180, 134 , 0.8)
+    }
+
+    /* dropdown */
+ </style>
+</head>
+<body>
+
 @extends('layouts.app')
 
 @section('title', 'Home')
 
 @section('content')
-
-
-@include('components.banner')
-
-    <div class="container py-5" style="margin-top: 100px">
-      <div class="d-flex flex-wrap justify-content-between align-items-center gap-4">
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="500" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/vs_code.png') }}" alt="VS Code" style="max-height: 70px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary shadow" style="font-size: 0.8rem;">VS Code</span>
-        </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="700" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/github.png') }}" alt="GitHub" style="max-height: 50px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark shadow" style="font-size: 0.8rem;">GitHub</span>
-        </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="900" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/stackoverflow.png') }}" alt="Stack Overflow" style="max-height: 70px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark shadow" style="font-size: 0.8rem;">Stack Overflow</span>
-        </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1100" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/freeCodeCamp.png') }}" alt="freeCodeCamp" style="max-height: 30px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success shadow" style="font-size: 0.8rem;">freeCodeCamp</span>
-        </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1300" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/w3school.png') }}" alt="W3Schools" style="max-height: 40px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success shadow" style="font-size: 0.8rem;">W3Schools</span>
-        </div>
-        <div data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500" class="brand-logo position-relative p-3 bg-light rounded-circle shadow mx-2 d-flex align-items-center justify-content-center" style="height: 120px; width: 120px;">
-          <img src="{{ asset('storage/uploads/logo_image/mdn.png') }}" alt="MDN" style="max-height: 70px; max-width: 90px;">
-          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-info text-dark shadow" style="font-size: 0.8rem;">MDN</span>
-        </div>
-      </div>
-    </div>
-     
-
-    {{-- @include('components.rotating') --}}
-
-    @include('components.scrollbar')
-
+  
     <div class="container mt-5">
       <div class="row">
-
-          <!-- Search widget-->
-            @include('components.serchForm')
-          <!-- Tags widget-->
-            @include('components.tag')
-
-
         <!-- Blog entries-->
         <div class="col-lg-12">
           <!-- Nested row for non-featured blog posts-->
@@ -142,9 +173,10 @@
             @endif
 
         </div>
-
-
-
       </div>
     </div>
-@endsection
+
+    @endsection
+
+</body>
+</html>

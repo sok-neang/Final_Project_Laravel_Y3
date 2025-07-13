@@ -12,6 +12,7 @@
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,6 +59,7 @@
                 line-clamp: 2;
         -webkit-box-orient: vertical;
       }
+
       .btn-login, .btn-logout{
           border: 2px solid #fff;
           border-radius: 10px;
@@ -66,6 +68,27 @@
       .btn-logout:hover{
         border: 2px solid #fff;
         background-color: var(--primary-color);
+      }
+
+      .nav-link:hover{
+        color: var(--primary-color);
+      }
+      .nav-link i{
+        color: var(--primary-color);
+        padding-right: 7px;
+      }
+
+      /* dropdown */
+      .dropdown-menu{
+        background-color: #eee;
+        border-radius: 0 0 5px 5px;
+        top: 110%;
+        /* visibility: hidden; */
+        display: none;
+      }
+      .dropdown:hover .dropdown-menu{
+        /* visibility: visible; */
+        display: block;
       }
 
       /* Hero banner */
@@ -110,15 +133,52 @@
       height: auto;
     }
 
-    /* scroll */
-    .scroll-container {
-      scrollbar-width: none;
-      -ms-overflow-style: none; 
-      
-    }
-    .scroll-container::-webkit-scrollbar {
-      display: none; 
-    }
+.hero-background {
+  position: absolute;
+  inset: 0;
+  /* Use your gradient colors */
+  background: linear-gradient(
+    -45deg,
+    #FEFCE8,
+    #a4f4cfad,
+    #d0fae5cf,
+    #52dc89fb
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+  z-index: -1; /* behind content */
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.floating-box {
+  display: inline-block;
+  animation: floatUpDown 2.5s ease-in-out infinite;
+}
+
+/* Keyframes for up and down motion */
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* goes up */
+  }
+  100% {
+    transform: translateY(0); /* goes down */
+  }
+}
+
     /* ====3D Rotating====  */
     .rotating{
       display: flex;
@@ -188,5 +248,9 @@
   </body>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+  <script>
+  AOS.init();
+  </script>
 </html>

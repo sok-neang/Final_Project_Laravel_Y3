@@ -11,6 +11,7 @@
     <title>Blog Post - Start Bootstrap Template</title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -136,7 +137,7 @@
   <body>
 
 
-    <div class="container login">
+    <div class="container login" data-aos="zoom-in" data-aos-duration="1000">
         <div class="form-container m-auto">
             <h2 class="form-title">Login</h2>
             
@@ -164,6 +165,12 @@
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+    AOS.init();
+    </script>
   </body>
 </html>
 

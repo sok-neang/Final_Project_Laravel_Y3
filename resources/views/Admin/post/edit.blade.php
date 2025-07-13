@@ -3,7 +3,7 @@
 @section('title', 'Update Post')
 
 @section('content')
-    <div class="row">
+    <div class="row mx-5">
         <div class="d-flex justify-content-between mb-2">
           <h3>Update Post</h3>
           <a class="btn btn-success" href="{{ route('Admin.post.index') }}" role="button">Back</a>
@@ -88,7 +88,7 @@
                   @endforeach
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-success">Submit</button>
             </form>
           </div>
 
@@ -104,3 +104,6 @@
         </div>
       </div>
 @endsection
+
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+<script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>

@@ -1,7 +1,7 @@
-   <nav class="navbar navbar-expand-lg border-bottom position-sticky top-0 bg-light z-3">
+   <nav class="navbar navbar-expand-lg border-bottom position-sticky top-0 bg-light shadow-sm z-3">
       <div class="container">
         <a class="navbar-brand" href="/">
-          <img src="{{ asset('storage/uploads/our_logo.png') }}" alt="My Logo">
+          <img width="200px" src="{{ asset('storage/uploads/our_logo.png') }}" alt="My Logo">
         </a>
         <button
           class="navbar-toggler"
@@ -15,19 +15,29 @@
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
+          <ul class="navbar-nav ms-auto d-flex align-items-center">
             <li class="nav-item">
-              <a class="nav-link text-active px-3" href="{{route('home')}}">Home</a>
+              <a class="nav-link text-active px-3 py-2" href="{{route('home')}}"><i class="fa-solid fa-house"></i>Home</a>
             </li>
 
-            @foreach ($nav_categories as $navbar)
-              <li class="nav-item">
-              <a class="nav-link text-dark px-3" href="{{route('home', ['category_id'=>$navbar->id])}}">{{$navbar->name}}</a>
+            <li class="nav-item position-relative dropdown">
+              <a class="nav-link px-3 py-2 bg-gray-300" href="{{route('allcourses')}}"><i class="fa-solid fa-book"></i>All Courses</a>
+              <ul class="list-unstyled position-absolute dropdown-menu">
+                @foreach ($nav_categories as $navbar)
+                    <li class="nav-item">
+                      <a class="nav-link text-dark px-3" href="{{route('home', ['category_id'=>$navbar->id])}}">{{$navbar->name}}</a>
+                    </li>
+                @endforeach
+              </ul>
             </li>
-            @endforeach
 
             <li class="nav-item">
-              <a class="nav-link text-dark px-3" href="#">About</a>
+              <a class="nav-link px-3 py-2" href="{{route('home')}}"><i class="fa-solid fa-film"></i>Videos</a>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link px-3 py-2" href="{{route('about')}}"><i class="fa-regular fa-address-card"></i>About Us</a>
             </li>
 
             @if(Auth::check())
